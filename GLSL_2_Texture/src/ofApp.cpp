@@ -2,6 +2,7 @@
 
 //--------------------------------------------------------------
 void ofApp::setup(){
+	ofDisableAlphaBlending();
 	quad.addVertex(glm::vec3(-1, -1, 0));
 	quad.addVertex(glm::vec3(-1, 1, 0));
 	quad.addVertex(glm::vec3(1, 1, 0));
@@ -39,6 +40,7 @@ void ofApp::draw(){
 	shader.begin();
 	shader.setUniformTexture("parrotTex", img, 0);
 	shader.setUniform1f("time", ofGetElapsedTimef());
+	shader.setUniform1f("brightness", brightness);
 	quad.draw();
 	shader.end();
 }
